@@ -331,17 +331,43 @@ console.log(countMovies(movies));
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 
+let newArray = [];
+let onlyTheYears = function (n) {
+  for (let i = 0; i < n.length; i++) {
+    const nYears = [n[i].Year];
+    console.log(nYears);
+    newArray.push(nYears);
+  }
+};
+onlyTheYears(movies);
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 
+let onlyInLastMillennium = movies.map((movie) => parseInt(movie.Year));
+for (let i = 0; i < onlyInLastMillennium.length; i++) {
+  const movieYear = onlyInLastMillennium[i];
+  if (movieYear <= 2000) {
+    console.log(movieYear);
+  }
+}
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+let sumAllTheYears = movies.map((movie) => parseInt(movie.Year));
+let sumTot = 0;
+for (let i = 0; i < sumYears.length; i++) {
+  sumTot += sumYears[i];
+}
+console.log(sumTot);
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+let searchByTitle = movies.map((str) => str.Title);
+console.log(searchByTitle);
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
@@ -357,6 +383,9 @@ console.log(countMovies(movies));
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+function getContainer() {
+  return document.getElementById("container");
+}
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
