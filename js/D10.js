@@ -358,8 +358,8 @@ for (let i = 0; i < onlyInLastMillennium.length; i++) {
 */
 let sumAllTheYears = movies.map((movie) => parseInt(movie.Year));
 let sumTot = 0;
-for (let i = 0; i < sumYears.length; i++) {
-  sumTot += sumYears[i];
+for (let i = 0; i < sumAllTheYears.length; i++) {
+  sumTot += sumAllTheYears[i];
 }
 console.log(sumTot);
 
@@ -390,26 +390,60 @@ function getContainer() {
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+function getTD() {
+  return document.getElementsByTagName("td");
+}
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-
+function tdText() {
+  const tdTag = document.getElementsByTagName("td");
+  for (let i = 0; i < tdTag.length; i++) {
+    console.log(tdTag[i].textContent);
+  }
+}
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+function addRedBackgroundToLinks() {
+  const links = document.getElementsByTagName("a");
+  for (let i = 0; i < links.length; i++) {
+    links[i].style.backgroundColor = "red";
+  }
+}
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+function addItemToList() {
+  const list = document.getElementById("myList");
+  const newItem = document.createElement("li");
+  newItem.textContent = "New element";
+  list.appendChild(newItem);
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+function clearList() {
+  const list = document.getElementById("myList");
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+function addClass() {
+  const trTags = document.getElementsByTagName("tr");
+  for (let i = 0; i < trTags.length; i++) {
+    trElements[i].classList.add("test");
+  }
+}
 
 // [EXTRA] JS Avanzato
 
