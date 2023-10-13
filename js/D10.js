@@ -54,7 +54,6 @@ console.log(me);
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
-
 me.skills.pop();
 console.log(me);
 
@@ -63,10 +62,25 @@ console.log(me);
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
+function dice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+let roll = dice();
+console.log(roll);
 
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
+
+function whoIsBigger(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+let bigger = whoIsBigger(10, 20);
+console.log(bigger);
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
@@ -74,10 +88,28 @@ console.log(me);
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 
+function splitMe(str) {
+  return str.split(" ");
+}
+let words = splitMe("I love coding");
+console.log(words);
+
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+
+function deleteOne(str, booleano) {
+  if (booleano) {
+    return str.slice(1);
+  } else {
+    return str.slice(0, -1);
+  }
+}
+let result = deleteOne("Epicode", true);
+console.log(result);
+result = deleteOne("Epicode", false);
+console.log(result);
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -85,13 +117,32 @@ console.log(me);
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+function onlyLetters(str) {
+  return str.replace(/[0-9]/g, "");
+}
+let letters = onlyLetters("I have 4 dogs");
+console.log(letters);
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
+function isThisAnEmail(str) {
+  console.log(str.includes("@"));
+}
+isThisAnEmail("giuseppe.chia95@gmail.com");
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+
+function whatDayIsIt() {
+  let days = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+  let today = new Date();
+  return days[today.getDay()];
+}
+let day = whatDayIsIt();
+console.log(day);
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -105,6 +156,22 @@ console.log(me);
       values: [3, 3, 4]
   }
 */
+
+let obj = {
+  summ: 0,
+  values: [],
+};
+let rollTheDices = function (n) {
+  let summ = 0;
+  for (let i = 0; i < n; i++) {
+    let result = dice();
+    obj.values.push(result);
+    obj.summ += result;
+  }
+  return obj;
+};
+let diceRoll = rollTheDices(4);
+console.log(diceRoll);
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
